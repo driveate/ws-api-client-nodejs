@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The_Wheel_Fitment_API_allows_for_programmatic_access_to_the_database_of_www_wheel_size_com_and_its_services_Use_this_API_to_retrieve_information_about_vehicle_fitment_database_for_rims_and_tires_including_OE_and_option_fitments_and_plusminus_sizing_fitment_information__A_variety_of_country_and_language_specific_options_are_available__The_coverage_of_fitment_data_for_vehicles_manufactured_since_2000_is_nearly_100_The_information_about_fitment_data_is_updated_on_a_daily_basis_",
   "license": "Unlicense",
-  "main": "ws_api_client/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
