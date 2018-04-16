@@ -48,13 +48,9 @@ You should now be able to `require('ws-api-client-nodejs')` in javascript files 
 command above from.
 
 #### git
-#
-If the library is hosted at a git repository, e.g.
-https://github.com/GIT_USER_ID/GIT_REPO_ID
-then install it via:
 
 ```shell
-    npm install GIT_USER_ID/GIT_REPO_ID --save
+    npm install driveate/ws-api-client-nodejs --save
 ```
 
 ### For browser
@@ -100,32 +96,21 @@ var defaultClient = ws_api_client.ApiClient.instance;
 // Configure API key authorization: user_key
 var user_key = defaultClient.authentications['user_key'];
 user_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//user_key.apiKeyPrefix['user_key'] = "Token"
 
-var api = new ws_api_client.BoltPatternsApi()
+var api = new ws_api_client.MakesApi()
 
 var opts = { 
-  'stud': 8.14, // {Number} Number of stud holes (e.g. `5`)
-  'studMin': 8.14, // {Number} Lower bound for number of stud holes (e.g. `4`)
-  'studMax': 8.14, // {Number} Upper bound for number of stud holes (e.g. `7`)
-  'pcd': 8.14, // {Number} Pitch circle diameter, mm (e.g. `115`)
-  'pcdMin': 8.14, // {Number} Lower bound for pitch circle diameter, mm (e.g. `105`)
-  'pcdMax': 8.14, // {Number} Upper bound for pitch circle diameter, mm (e.g. `135`)
-  'brands': "brands_example", // {String} Show information only for specified manufacturers. Use _**`GET /makes/`**_ method to get the full list. (e.g. `mitsubishi,nissan,toyota`)
-  'brandsExclude': "brandsExclude_example", // {String} Don't show information for specified manufacturers. Use _**`GET /makes/`**_ method to get the full list. (e.g. `geely,great-wall`)
-  'countries': "countries_example", // {String} Show information for local manufacturers from specified countries only. Use _**`GET /countries/`**_ method to get the full list of countries. (e.g. `us,gb,jp`)
-  'countriesExclude': "countriesExclude_example" // {String} Don't show information for local manufacturers from specified countries. Use _**`GET /countries/`**_ method to get the full list of countries. (e.g. `ru,ua`)
+  'countries': "us,gb,jp", // {String} Show information for local manufacturers from specified countries only. Use `GET /countries/` method to get the full list of countries. (e.g. `us,gb,jp`)
 };
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully. Returned data: ' + JSON.stringify(data, null, 2));
   }
 };
-api.boltPatternsList(opts, callback);
+api.makesList(opts, callback);
 
 ```
 
