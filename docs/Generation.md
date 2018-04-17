@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**make** | [**MakeModel**](MakeModel.md) |  | 
+**make** | [**Make**](Make.md) |  | 
 **model** | [**Model**](Model.md) |  | 
 **name** | **String** | Generation name (e.g. &#x60;III Restyling&#x60;) | 
 **bodies** | [**[Body]**](Body.md) |  | 

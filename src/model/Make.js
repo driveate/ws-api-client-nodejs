@@ -26,7 +26,7 @@
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.MakeModel = factory(root.ws_api_client.ApiClient);
+    root.ws_api_client.Make = factory(root.ws_api_client.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -35,14 +35,14 @@
 
 
   /**
-   * The MakeModel model module.
-   * @module model/MakeModel
+   * The Make model module.
+   * @module model/Make
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>MakeModel</code>.
-   * @alias module:model/MakeModel
+   * Constructs a new <code>Make</code>.
+   * @alias module:model/Make
    * @class
    * @param slug {String} Manufacturer slug name (e.g. `mitsubishi`)
    * @param name {String} Manufacturer name (e.g. `Mitsubishi`)
@@ -57,11 +57,11 @@
   };
 
   /**
-   * Constructs a <code>MakeModel</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Make</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/MakeModel} obj Optional instance to populate.
-   * @return {module:model/MakeModel} The populated <code>MakeModel</code> instance.
+   * @param {module:model/Make} obj Optional instance to populate.
+   * @return {module:model/Make} The populated <code>Make</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {

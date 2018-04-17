@@ -31,7 +31,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new ws_api_client.MakeModel();
+    instance = new ws_api_client.Make();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,28 +50,28 @@
       object[property] = value;
   }
 
-  describe('MakeModel', function() {
-    it('should create an instance of MakeModel', function() {
-      // uncomment below and update the code to test MakeModel
-      //var instance = new ws_api_client.MakeModel();
-      //expect(instance).to.be.a(ws_api_client.MakeModel);
+  describe('Make', function() {
+    it('should create an instance of Make', function() {
+      // uncomment below and update the code to test Make
+      //var instance = new ws_api_client.Make();
+      //expect(instance).to.be.a(ws_api_client.Make);
     });
 
     it('should have the property slug (base name: "slug")', function() {
       // uncomment below and update the code to test the property slug
-      //var instance = new ws_api_client.MakeModel();
+      //var instance = new ws_api_client.Make();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new ws_api_client.MakeModel();
+      //var instance = new ws_api_client.Make();
       //expect(instance).to.be();
     });
 
     it('should have the property nameEn (base name: "name_en")', function() {
       // uncomment below and update the code to test the property nameEn
-      //var instance = new ws_api_client.MakeModel();
+      //var instance = new ws_api_client.Make();
       //expect(instance).to.be();
     });
 

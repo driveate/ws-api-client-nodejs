@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/MakeModel'], factory);
+    define(['ApiClient', 'model/Make'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/MakeModel'));
+    module.exports = factory(require('../ApiClient'), require('../model/Make'));
   } else {
     // Browser globals (root is window)
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.MakesApi = factory(root.ws_api_client.ApiClient, root.ws_api_client.MakeModel);
+    root.ws_api_client.MakesApi = factory(root.ws_api_client.ApiClient, root.ws_api_client.Make);
   }
-}(this, function(ApiClient, MakeModel) {
+}(this, function(ApiClient, Make) {
   'use strict';
 
   /**
@@ -52,7 +52,7 @@
      * Callback function to receive the result of the makesList operation.
      * @callback module:api/MakesApi~makesListCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/MakeModel>} data The data returned by the service call.
+     * @param {Array.<module:model/Make>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -66,7 +66,7 @@
      * @param {String} opts.countries Show information for local manufacturers from specified countries only. Use _**&#x60;GET /countries/&#x60;**_ method to get the full list of countries. (e.g. &#x60;us,gb,jp&#x60;)
      * @param {String} opts.countriesExclude Don&#39;t show information for local manufacturers from specified countries. Use _**&#x60;GET /countries/&#x60;**_ method to get the full list of countries. (e.g. &#x60;ru,ua&#x60;)
      * @param {module:api/MakesApi~makesListCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/MakeModel>}
+     * data is of type: {@link Array.<module:model/Make>}
      */
     this.makesList = function(opts, callback) {
       opts = opts || {};
@@ -92,7 +92,7 @@
       var authNames = ['user_key'];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = [MakeModel];
+      var returnType = [Make];
 
       return this.apiClient.callApi(
         '/makes/', 'GET',

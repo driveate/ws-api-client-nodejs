@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/MakeModel', 'model/ModelWithTrims'], factory);
+    define(['ApiClient', 'model/Make', 'model/ModelWithTrims'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./MakeModel'), require('./ModelWithTrims'));
+    module.exports = factory(require('../ApiClient'), require('./Make'), require('./ModelWithTrims'));
   } else {
     // Browser globals (root is window)
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.MakeWithModels = factory(root.ws_api_client.ApiClient, root.ws_api_client.MakeModel, root.ws_api_client.ModelWithTrims);
+    root.ws_api_client.MakeWithModels = factory(root.ws_api_client.ApiClient, root.ws_api_client.Make, root.ws_api_client.ModelWithTrims);
   }
-}(this, function(ApiClient, MakeModel, ModelWithTrims) {
+}(this, function(ApiClient, Make, ModelWithTrims) {
   'use strict';
 
 
@@ -44,7 +44,7 @@
    * Constructs a new <code>MakeWithModels</code>.
    * @alias module:model/MakeWithModels
    * @class
-   * @param make {module:model/MakeModel} 
+   * @param make {module:model/Make} 
    * @param models {Array.<module:model/ModelWithTrims>} 
    */
   var exports = function(make, models) {
@@ -66,7 +66,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('make')) {
-        obj['make'] = MakeModel.constructFromObject(data['make']);
+        obj['make'] = Make.constructFromObject(data['make']);
       }
       if (data.hasOwnProperty('models')) {
         obj['models'] = ApiClient.convertToType(data['models'], [ModelWithTrims]);
@@ -76,7 +76,7 @@
   }
 
   /**
-   * @member {module:model/MakeModel} make
+   * @member {module:model/Make} make
    */
   exports.prototype['make'] = undefined;
   /**

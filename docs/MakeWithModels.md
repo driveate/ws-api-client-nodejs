@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**make** | [**MakeModel**](MakeModel.md) |  | 
+**make** | [**Make**](Make.md) |  | 
 **models** | [**[ModelWithTrims]**](ModelWithTrims.md) |  | 
 
 

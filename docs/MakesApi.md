@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="makesList"></a>
 # **makesList**
-> [MakeModel] makesList(opts)
+> [Make] makesList(opts)
 
 Returns a list of manufacturers
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[MakeModel]**](MakeModel.md)
+[**[Make]**](Make.md)
 
 ### Authorization
 

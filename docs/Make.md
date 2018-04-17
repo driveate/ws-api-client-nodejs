@@ -1,4 +1,4 @@
-# ws_api_client.MakeModel
+# ws_api_client.Make
 
 ## Properties
 Name | Type | Description | Notes

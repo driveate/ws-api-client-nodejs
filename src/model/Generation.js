@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body', 'model/MakeModel', 'model/Model'], factory);
+    define(['ApiClient', 'model/Body', 'model/Make', 'model/Model'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Body'), require('./MakeModel'), require('./Model'));
+    module.exports = factory(require('../ApiClient'), require('./Body'), require('./Make'), require('./Model'));
   } else {
     // Browser globals (root is window)
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.Generation = factory(root.ws_api_client.ApiClient, root.ws_api_client.Body, root.ws_api_client.MakeModel, root.ws_api_client.Model);
+    root.ws_api_client.Generation = factory(root.ws_api_client.ApiClient, root.ws_api_client.Body, root.ws_api_client.Make, root.ws_api_client.Model);
   }
-}(this, function(ApiClient, Body, MakeModel, Model) {
+}(this, function(ApiClient, Body, Make, Model) {
   'use strict';
 
 
@@ -44,7 +44,7 @@
    * Constructs a new <code>Generation</code>.
    * @alias module:model/Generation
    * @class
-   * @param make {module:model/MakeModel} 
+   * @param make {module:model/Make} 
    * @param model {module:model/Model} 
    * @param name {String} Generation name (e.g. `III Restyling`)
    * @param bodies {Array.<module:model/Body>} 
@@ -73,7 +73,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('make')) {
-        obj['make'] = MakeModel.constructFromObject(data['make']);
+        obj['make'] = Make.constructFromObject(data['make']);
       }
       if (data.hasOwnProperty('model')) {
         obj['model'] = Model.constructFromObject(data['model']);
@@ -98,7 +98,7 @@
   }
 
   /**
-   * @member {module:model/MakeModel} make
+   * @member {module:model/Make} make
    */
   exports.prototype['make'] = undefined;
   /**

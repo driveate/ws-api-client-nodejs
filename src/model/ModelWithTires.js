@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Generation', 'model/MakeModel', 'model/Model', 'model/RimAgregation', 'model/TiresAggregation'], factory);
+    define(['ApiClient', 'model/Generation', 'model/Make', 'model/Model', 'model/RimAgregation', 'model/TiresAggregation'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Generation'), require('./MakeModel'), require('./Model'), require('./RimAgregation'), require('./TiresAggregation'));
+    module.exports = factory(require('../ApiClient'), require('./Generation'), require('./Make'), require('./Model'), require('./RimAgregation'), require('./TiresAggregation'));
   } else {
     // Browser globals (root is window)
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.ModelWithTires = factory(root.ws_api_client.ApiClient, root.ws_api_client.Generation, root.ws_api_client.MakeModel, root.ws_api_client.Model, root.ws_api_client.RimAgregation, root.ws_api_client.TiresAggregation);
+    root.ws_api_client.ModelWithTires = factory(root.ws_api_client.ApiClient, root.ws_api_client.Generation, root.ws_api_client.Make, root.ws_api_client.Model, root.ws_api_client.RimAgregation, root.ws_api_client.TiresAggregation);
   }
-}(this, function(ApiClient, Generation, MakeModel, Model, RimAgregation, TiresAggregation) {
+}(this, function(ApiClient, Generation, Make, Model, RimAgregation, TiresAggregation) {
   'use strict';
 
 
@@ -44,7 +44,7 @@
    * Constructs a new <code>ModelWithTires</code>.
    * @alias module:model/ModelWithTires
    * @class
-   * @param make {module:model/MakeModel} 
+   * @param make {module:model/Make} 
    * @param model {module:model/Model} 
    * @param year {Number} Selected year (e.g. `2015`, can be __*`null`*__)
    * @param generations {Array.<module:model/Generation>} 
@@ -73,7 +73,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('make')) {
-        obj['make'] = MakeModel.constructFromObject(data['make']);
+        obj['make'] = Make.constructFromObject(data['make']);
       }
       if (data.hasOwnProperty('model')) {
         obj['model'] = Model.constructFromObject(data['model']);
@@ -98,7 +98,7 @@
   }
 
   /**
-   * @member {module:model/MakeModel} make
+   * @member {module:model/Make} make
    */
   exports.prototype['make'] = undefined;
   /**
