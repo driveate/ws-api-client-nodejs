@@ -54,11 +54,17 @@
     describe('yearsList', function() {
       it('should call yearsList successfully', function(done) {
         //uncomment below and update the code to test yearsList
-        //instance.yearsList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.yearsList('mitsubishi', {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.yearsList('mitsubishi', {model: 'outlander'}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
   });

@@ -54,11 +54,11 @@
     describe('trimsList', function() {
       it('should call trimsList successfully', function(done) {
         //uncomment below and update the code to test trimsList
-        //instance.trimsList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.trimsList('mitsubishi', 'outlander', 2015, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
   });

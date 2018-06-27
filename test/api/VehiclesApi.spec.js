@@ -54,11 +54,21 @@
     describe('vehiclesList', function() {
       it('should call vehiclesList successfully', function(done) {
         //uncomment below and update the code to test vehiclesList
-        //instance.vehiclesList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.vehiclesList('mitsubishi', 'outlander', 2015, {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+
+          var trim = '20-gg2w-iii-restyling';
+          // var trim = result[0]['slug'];
+          // expect(trim).not.to.be.null();
+  
+          instance.vehiclesList('mitsubishi', 'outlander', 2015, {trim: trim}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
   });

@@ -54,31 +54,37 @@
     describe('modelsList', function() {
       it('should call modelsList successfully', function(done) {
         //uncomment below and update the code to test modelsList
-        //instance.modelsList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.modelsList('mitsubishi', {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.modelsList('mitsubishi', {year: 2015}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
     describe('modelsRead', function() {
       it('should call modelsRead successfully', function(done) {
         //uncomment below and update the code to test modelsRead
-        //instance.modelsRead(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.modelsRead('mitsubishi', 'outlander', {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
     describe('modelsReadYear', function() {
       it('should call modelsReadYear successfully', function(done) {
         //uncomment below and update the code to test modelsReadYear
-        //instance.modelsReadYear(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.modelsReadYear('mitsubishi', 'outlander', 2015, {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
   });

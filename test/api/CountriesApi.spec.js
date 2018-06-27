@@ -54,11 +54,11 @@
     describe('countriesList', function() {
       it('should call countriesList successfully', function(done) {
         //uncomment below and update the code to test countriesList
-        //instance.countriesList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.countriesList(function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
   });

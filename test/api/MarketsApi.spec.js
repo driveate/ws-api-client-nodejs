@@ -54,11 +54,19 @@
     describe('marketsList', function() {
       it('should call marketsList successfully', function(done) {
         //uncomment below and update the code to test marketsList
-        //instance.marketsList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.marketsList({}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
+      });
+      it('should call chinese marketsList successfully', function(done) {
+        //uncomment below and update the code to test marketsList
+        instance.marketsList({lang: 'zh-cn'}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
   });

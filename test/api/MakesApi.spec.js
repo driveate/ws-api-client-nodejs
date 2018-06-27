@@ -54,11 +54,11 @@
     describe('makesList', function() {
       it('should call makesList successfully', function(done) {
         //uncomment below and update the code to test makesList
-        //instance.makesList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.makesList({}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
   });

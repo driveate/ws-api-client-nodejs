@@ -54,21 +54,27 @@
     describe('tiresList', function() {
       it('should call tiresList successfully', function(done) {
         //uncomment below and update the code to test tiresList
-        //instance.tiresList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.tiresList({}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.tiresList({width: 195}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
     describe('tiresRead', function() {
       it('should call tiresRead successfully', function(done) {
         //uncomment below and update the code to test tiresRead
-        //instance.tiresRead(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.tiresRead('195/50R15', {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
   });

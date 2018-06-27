@@ -54,21 +54,33 @@
     describe('boltPatternsList', function() {
       it('should call boltPatternsList successfully', function(done) {
         //uncomment below and update the code to test boltPatternsList
-        //instance.boltPatternsList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.boltPatternsList({}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.boltPatternsList({stud: 5}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
     describe('boltPatternsRead', function() {
       it('should call boltPatternsRead successfully', function(done) {
         //uncomment below and update the code to test boltPatternsRead
-        //instance.boltPatternsRead(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.boltPatternsRead('5x105', {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.boltPatternsRead('5x105', {brands: 'chevrolet'}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
   });

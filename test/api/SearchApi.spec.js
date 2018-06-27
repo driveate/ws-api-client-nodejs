@@ -54,41 +54,63 @@
     describe('searchByHfTireList', function() {
       it('should call searchByHfTireList successfully', function(done) {
         //uncomment below and update the code to test searchByHfTireList
-        //instance.searchByHfTireList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.searchByHfTireList(31, 10.5, 15, {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+          done();
+        });
       });
     });
     describe('searchByModelList', function() {
       it('should call searchByModelList successfully', function(done) {
         //uncomment below and update the code to test searchByModelList
-        //instance.searchByModelList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.searchByModelList('mitsubishi', 'outlander', 2015, {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+
+          var trim = '20-gg2w-iii-restyling';
+          // var trim = result[0]['slug'];
+          // expect(trim).not.to.be.empty();
+  
+          instance.searchByModelList('mitsubishi', 'outlander', 2015, {trim: trim}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
     describe('searchByRimList', function() {
       it('should call searchByRimList successfully', function(done) {
         //uncomment below and update the code to test searchByRimList
-        //instance.searchByRimList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.searchByRimList('5x100', 16, 7, {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.searchByRimList('5x100', 16, 7, {offset: 40}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.lessThan(result.length);
+            done();
+          });
+        });
       });
     });
     describe('searchByTireList', function() {
       it('should call searchByTireList successfully', function(done) {
         //uncomment below and update the code to test searchByTireList
-        //instance.searchByTireList(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
+        instance.searchByTireList(195, 50, 16, {}, function(error, result) {
+          if (error) throw error;
+          expect(result).not.to.be.empty();
+  
+          instance.searchByTireList(195, 50, 16, {brands: 'chevrolet'}, function(error, result2) {
+            if (error) throw error;
+            expect(result2).not.to.be.empty();
+            expect(result2.length).to.be.equal(1);
+            done();
+          });
+        });
       });
     });
   });
