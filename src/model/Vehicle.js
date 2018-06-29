@@ -44,17 +44,23 @@
    * Constructs a new <code>Vehicle</code>.
    * @alias module:model/Vehicle
    * @class
-   * @param market {module:model/Market} 
-   * @param generation {module:model/Generation} 
-   * @param boltPattern {String} Bolt pattern (e.g. `5x105`, can be __*`N/A`*__)
    */
-  var exports = function(market, generation, boltPattern) {
+  var exports = function() {
     var _this = this;
 
-    _this['market'] = market;
-    _this['generation'] = generation;
 
-    _this['bolt_pattern'] = boltPattern;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   };
@@ -73,17 +79,44 @@
       if (data.hasOwnProperty('market')) {
         obj['market'] = Market.constructFromObject(data['market']);
       }
+      if (data.hasOwnProperty('body')) {
+        obj['body'] = ApiClient.convertToType(data['body'], 'String');
+      }
+      if (data.hasOwnProperty('trim')) {
+        obj['trim'] = ApiClient.convertToType(data['trim'], 'String');
+      }
+      if (data.hasOwnProperty('slug')) {
+        obj['slug'] = ApiClient.convertToType(data['slug'], 'String');
+      }
       if (data.hasOwnProperty('generation')) {
         obj['generation'] = Generation.constructFromObject(data['generation']);
       }
+      if (data.hasOwnProperty('stud_holes')) {
+        obj['stud_holes'] = ApiClient.convertToType(data['stud_holes'], 'Number');
+      }
+      if (data.hasOwnProperty('pcd')) {
+        obj['pcd'] = ApiClient.convertToType(data['pcd'], 'Number');
+      }
+      if (data.hasOwnProperty('centre_bore')) {
+        obj['centre_bore'] = ApiClient.convertToType(data['centre_bore'], 'Number');
+      }
       if (data.hasOwnProperty('lock_type')) {
         obj['lock_type'] = ApiClient.convertToType(data['lock_type'], 'String');
+      }
+      if (data.hasOwnProperty('lock_text')) {
+        obj['lock_text'] = ApiClient.convertToType(data['lock_text'], 'String');
       }
       if (data.hasOwnProperty('bolt_pattern')) {
         obj['bolt_pattern'] = ApiClient.convertToType(data['bolt_pattern'], 'String');
       }
       if (data.hasOwnProperty('power')) {
         obj['power'] = Power.constructFromObject(data['power']);
+      }
+      if (data.hasOwnProperty('engine_type')) {
+        obj['engine_type'] = ApiClient.convertToType(data['engine_type'], 'String');
+      }
+      if (data.hasOwnProperty('fuel')) {
+        obj['fuel'] = ApiClient.convertToType(data['fuel'], 'String');
       }
       if (data.hasOwnProperty('wheels')) {
         obj['wheels'] = ApiClient.convertToType(data['wheels'], [WheelPair]);
@@ -97,13 +130,48 @@
    */
   exports.prototype['market'] = undefined;
   /**
+   * Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)
+   * @member {String} body
+   */
+  exports.prototype['body'] = undefined;
+  /**
+   * Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
+   * @member {String} trim
+   */
+  exports.prototype['trim'] = undefined;
+  /**
+   * Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
+   * @member {String} slug
+   */
+  exports.prototype['slug'] = undefined;
+  /**
    * @member {module:model/Generation} generation
    */
   exports.prototype['generation'] = undefined;
   /**
+   * Number of stud holes (e.g. `5`, can be __*`null`*__)
+   * @member {Number} stud_holes
+   */
+  exports.prototype['stud_holes'] = undefined;
+  /**
+   * Pitch circle diameter, mm (e.g. `105`, can be __*`null`*__)
+   * @member {Number} pcd
+   */
+  exports.prototype['pcd'] = undefined;
+  /**
+   * Centre bore diameter, mm (e.g. `48.1`, can be __*`null`*__)
+   * @member {Number} centre_bore
+   */
+  exports.prototype['centre_bore'] = undefined;
+  /**
    * @member {module:model/Vehicle.LockTypeEnum} lock_type
    */
   exports.prototype['lock_type'] = undefined;
+  /**
+   * Lock thread size (e.g. `M12 x 1.25`, can be __*`null`*__)
+   * @member {String} lock_text
+   */
+  exports.prototype['lock_text'] = undefined;
   /**
    * Bolt pattern (e.g. `5x105`, can be __*`N/A`*__)
    * @member {String} bolt_pattern
@@ -113,6 +181,16 @@
    * @member {module:model/Power} power
    */
   exports.prototype['power'] = undefined;
+  /**
+   * Engine type (e.g. `V8`, can be __*`null`*__)
+   * @member {String} engine_type
+   */
+  exports.prototype['engine_type'] = undefined;
+  /**
+   * Fuel (e.g. `Petrol`, can be __*`null`*__)
+   * @member {String} fuel
+   */
+  exports.prototype['fuel'] = undefined;
   /**
    * @member {Array.<module:model/WheelPair>} wheels
    */

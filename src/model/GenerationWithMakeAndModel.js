@@ -44,18 +44,14 @@
    * Constructs a new <code>GenerationWithMakeAndModel</code>.
    * @alias module:model/GenerationWithMakeAndModel
    * @class
-   * @param make {module:model/Make} 
-   * @param model {module:model/Model} 
-   * @param name {String} Generation name (e.g. `III Restyling`)
-   * @param bodies {Array.<module:model/Body>} 
    */
-  var exports = function(make, model, name, bodies) {
+  var exports = function() {
     var _this = this;
 
-    _this['make'] = make;
-    _this['model'] = model;
-    _this['name'] = name;
-    _this['bodies'] = bodies;
+
+
+
+
 
 
 

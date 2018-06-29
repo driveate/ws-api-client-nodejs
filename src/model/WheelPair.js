@@ -44,18 +44,14 @@
    * Constructs a new <code>WheelPair</code>.
    * @alias module:model/WheelPair
    * @class
-   * @param showingFpOnly {Boolean} Show front pair only
-   * @param isStock {Boolean} Original Equipment (OE)
-   * @param front {module:model/Wheel} 
-   * @param rear {module:model/Wheel} 
    */
-  var exports = function(showingFpOnly, isStock, front, rear) {
+  var exports = function() {
     var _this = this;
 
-    _this['showing_fp_only'] = showingFpOnly;
-    _this['is_stock'] = isStock;
-    _this['front'] = front;
-    _this['rear'] = rear;
+
+
+
+
   };
 
   /**

@@ -44,19 +44,15 @@
    * Constructs a new <code>Tire</code>.
    * @alias module:model/Tire
    * @class
-   * @param width {Number} Tire section width, mm (e.g. `195`)
-   * @param aspectRatio {Number} Tire aspect ratio, % (e.g. `55`)
-   * @param rimDiameter {Number} Rim diameter, in (e.g. `16`)
-   * @param count {Number} Number of vehicles matching tire size
    */
-  var exports = function(width, aspectRatio, rimDiameter, count) {
+  var exports = function() {
     var _this = this;
 
 
-    _this['width'] = width;
-    _this['aspect_ratio'] = aspectRatio;
-    _this['rim_diameter'] = rimDiameter;
-    _this['count'] = count;
+
+
+
+
   };
 
   /**

@@ -44,17 +44,15 @@
    * Constructs a new <code>ModelWithTires</code>.
    * @alias module:model/ModelWithTires
    * @class
-   * @param make {module:model/Make} 
-   * @param model {module:model/Model} 
-   * @param generations {Array.<module:model/Generation>} 
    */
-  var exports = function(make, model, generations) {
+  var exports = function() {
     var _this = this;
 
-    _this['make'] = make;
-    _this['model'] = model;
 
-    _this['generations'] = generations;
+
+
+
+
 
 
   };
@@ -75,6 +73,9 @@
       }
       if (data.hasOwnProperty('model')) {
         obj['model'] = Model.constructFromObject(data['model']);
+      }
+      if (data.hasOwnProperty('year')) {
+        obj['year'] = ApiClient.convertToType(data['year'], 'Number');
       }
       if (data.hasOwnProperty('years')) {
         obj['years'] = ApiClient.convertToType(data['years'], ['Number']);
@@ -100,6 +101,11 @@
    * @member {module:model/Model} model
    */
   exports.prototype['model'] = undefined;
+  /**
+   * Selected year (e.g. `2015`, can be __*`null`*__)
+   * @member {Number} year
+   */
+  exports.prototype['year'] = undefined;
   /**
    * Model production years
    * @member {Array.<Number>} years

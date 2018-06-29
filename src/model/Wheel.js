@@ -44,17 +44,25 @@
    * Constructs a new <code>Wheel</code>.
    * @alias module:model/Wheel
    * @class
-   * @param rim {String} Formatter rim size (e.g. `7Jx18 ET38`, can be __*`\"\"`*__)
-   * @param tire {String} Formatted tire size (e.g. `225/55R18`, can be __*`\"\"`*__)
-   * @param tireIs82series {Boolean} Is an old tire with assumed aspect ratio 82%
    */
-  var exports = function(rim, tire, tireIs82series) {
+  var exports = function() {
     var _this = this;
 
 
-    _this['rim'] = rim;
-    _this['tire'] = tire;
-    _this['tire_is_82series'] = tireIs82series;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   /**
@@ -74,11 +82,44 @@
       if (data.hasOwnProperty('rim')) {
         obj['rim'] = ApiClient.convertToType(data['rim'], 'String');
       }
+      if (data.hasOwnProperty('rim_diameter')) {
+        obj['rim_diameter'] = ApiClient.convertToType(data['rim_diameter'], 'Number');
+      }
+      if (data.hasOwnProperty('rim_width')) {
+        obj['rim_width'] = ApiClient.convertToType(data['rim_width'], 'Number');
+      }
+      if (data.hasOwnProperty('rim_offset')) {
+        obj['rim_offset'] = ApiClient.convertToType(data['rim_offset'], 'Number');
+      }
       if (data.hasOwnProperty('tire')) {
         obj['tire'] = ApiClient.convertToType(data['tire'], 'String');
       }
+      if (data.hasOwnProperty('tire_sizing_system')) {
+        obj['tire_sizing_system'] = ApiClient.convertToType(data['tire_sizing_system'], 'String');
+      }
+      if (data.hasOwnProperty('tire_construction')) {
+        obj['tire_construction'] = ApiClient.convertToType(data['tire_construction'], 'String');
+      }
+      if (data.hasOwnProperty('tire_width')) {
+        obj['tire_width'] = ApiClient.convertToType(data['tire_width'], 'Number');
+      }
+      if (data.hasOwnProperty('tire_aspect_ratio')) {
+        obj['tire_aspect_ratio'] = ApiClient.convertToType(data['tire_aspect_ratio'], 'Number');
+      }
+      if (data.hasOwnProperty('tire_diameter')) {
+        obj['tire_diameter'] = ApiClient.convertToType(data['tire_diameter'], 'Number');
+      }
+      if (data.hasOwnProperty('tire_section_width')) {
+        obj['tire_section_width'] = ApiClient.convertToType(data['tire_section_width'], 'Number');
+      }
       if (data.hasOwnProperty('tire_is_82series')) {
         obj['tire_is_82series'] = ApiClient.convertToType(data['tire_is_82series'], 'Boolean');
+      }
+      if (data.hasOwnProperty('load_index')) {
+        obj['load_index'] = ApiClient.convertToType(data['load_index'], 'Number');
+      }
+      if (data.hasOwnProperty('speed_index')) {
+        obj['speed_index'] = ApiClient.convertToType(data['speed_index'], 'String');
       }
     }
     return obj;
@@ -94,16 +135,120 @@
    */
   exports.prototype['rim'] = undefined;
   /**
+   * Rim diameter, in (e.g. `18.0`, can be __*`null`*__)
+   * @member {Number} rim_diameter
+   */
+  exports.prototype['rim_diameter'] = undefined;
+  /**
+   * Rim width, in (e.g. `7.0`, can be __*`null`*__)
+   * @member {Number} rim_width
+   */
+  exports.prototype['rim_width'] = undefined;
+  /**
+   * Rim offset, mm (e.g. `38.0`, can be __*`null`*__)
+   * @member {Number} rim_offset
+   */
+  exports.prototype['rim_offset'] = undefined;
+  /**
    * Formatted tire size (e.g. `225/55R18`, can be __*`\"\"`*__)
    * @member {String} tire
    */
   exports.prototype['tire'] = undefined;
   /**
+   * Tire sizing system (e.g. `metric`, can be __*`null`*__)
+   * @member {module:model/Wheel.TireSizingSystemEnum} tire_sizing_system
+   */
+  exports.prototype['tire_sizing_system'] = undefined;
+  /**
+   * Tire constriction code (e.g. `R`, can be __*`null`*__)
+   * @member {module:model/Wheel.TireConstructionEnum} tire_construction
+   */
+  exports.prototype['tire_construction'] = undefined;
+  /**
+   * Tire width, mm (e.g. `225.0`, can be __*`null`*__)
+   * @member {Number} tire_width
+   */
+  exports.prototype['tire_width'] = undefined;
+  /**
+   * Aspect ratio, % (e.g. `55.0`, can be __*`null`*__)
+   * @member {Number} tire_aspect_ratio
+   */
+  exports.prototype['tire_aspect_ratio'] = undefined;
+  /**
+   * High flotation tire diameter, in (e.g. `31.0`, can be __*`null`*__)
+   * @member {Number} tire_diameter
+   */
+  exports.prototype['tire_diameter'] = undefined;
+  /**
+   * High flotation section width, in (e.g. `10.5`, can be __*`null`*__)
+   * @member {Number} tire_section_width
+   */
+  exports.prototype['tire_section_width'] = undefined;
+  /**
    * Is an old tire with assumed aspect ratio 82%
    * @member {Boolean} tire_is_82series
    */
   exports.prototype['tire_is_82series'] = undefined;
+  /**
+   * Load index (e.g. `98`, can be __*`null`*__)
+   * @member {Number} load_index
+   */
+  exports.prototype['load_index'] = undefined;
+  /**
+   * Speed rating (e.g. `H`, can be __*`null`*__)
+   * @member {String} speed_index
+   */
+  exports.prototype['speed_index'] = undefined;
 
+
+  /**
+   * Allowed values for the <code>tire_sizing_system</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.TireSizingSystemEnum = {
+    /**
+     * value: "metric"
+     * @const
+     */
+    "metric": "metric",
+    /**
+     * value: "flotation"
+     * @const
+     */
+    "flotation": "flotation",
+    /**
+     * value: "lt-metric"
+     * @const
+     */
+    "lt-metric": "lt-metric",
+    /**
+     * value: "lt-numeric"
+     * @const
+     */
+    "lt-numeric": "lt-numeric"  };
+
+  /**
+   * Allowed values for the <code>tire_construction</code> property.
+   * @enum {String}
+   * @readonly
+   */
+  exports.TireConstructionEnum = {
+    /**
+     * value: "R"
+     * @const
+     */
+    "R": "R",
+    /**
+     * value: "B"
+     * @const
+     */
+    "B": "B",
+    /**
+     * value: "D"
+     * @const
+     */
+    "D": "D"  };
 
 
   return exports;

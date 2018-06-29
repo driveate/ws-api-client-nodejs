@@ -44,16 +44,13 @@
    * Constructs a new <code>Aggregation</code>.
    * @alias module:model/Aggregation
    * @class
-   * @param min {Number} Min aggregated value
-   * @param max {Number} Max aggregated value
-   * @param units {String} One of `mm, in, %`
    */
-  var exports = function(min, max, units) {
+  var exports = function() {
     var _this = this;
 
-    _this['min'] = min;
-    _this['max'] = max;
-    _this['units'] = units;
+
+
+
   };
 
   /**

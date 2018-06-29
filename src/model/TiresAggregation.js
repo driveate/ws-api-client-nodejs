@@ -45,18 +45,14 @@
    * Tire width, aspect ratio, and rim diameter values aggregated by all possible model modifications
    * @alias module:model/TiresAggregation
    * @class
-   * @param aspectRatio {module:model/Aggregation} 
-   * @param diameter {module:model/Aggregation} 
-   * @param width {module:model/Aggregation} 
-   * @param tireSize {module:model/SizeAggregation} 
    */
-  var exports = function(aspectRatio, diameter, width, tireSize) {
+  var exports = function() {
     var _this = this;
 
-    _this['aspect_ratio'] = aspectRatio;
-    _this['diameter'] = diameter;
-    _this['width'] = width;
-    _this['tire_size'] = tireSize;
+
+
+
+
   };
 
   /**

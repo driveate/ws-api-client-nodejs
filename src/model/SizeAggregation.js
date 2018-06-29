@@ -44,14 +44,12 @@
    * Constructs a new <code>SizeAggregation</code>.
    * @alias module:model/SizeAggregation
    * @class
-   * @param min {String} Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*
-   * @param max {String} Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*
    */
-  var exports = function(min, max) {
+  var exports = function() {
     var _this = this;
 
-    _this['min'] = min;
-    _this['max'] = max;
+
+
   };
 
   /**

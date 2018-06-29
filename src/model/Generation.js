@@ -44,14 +44,12 @@
    * Constructs a new <code>Generation</code>.
    * @alias module:model/Generation
    * @class
-   * @param name {String} Generation name (e.g. `III Restyling`)
-   * @param bodies {Array.<module:model/Body>} 
    */
-  var exports = function(name, bodies) {
+  var exports = function() {
     var _this = this;
 
-    _this['name'] = name;
-    _this['bodies'] = bodies;
+
+
 
 
 

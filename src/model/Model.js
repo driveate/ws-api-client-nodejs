@@ -44,16 +44,13 @@
    * Constructs a new <code>Model</code>.
    * @alias module:model/Model
    * @class
-   * @param slug {String} Model slug name (e.g. `outlander`)
-   * @param name {String} Model name (e.g. `Outlander`)
-   * @param nameEn {String}  Original english name. Use it along with _**`lang`**_ query parameter  
    */
-  var exports = function(slug, name, nameEn) {
+  var exports = function() {
     var _this = this;
 
-    _this['slug'] = slug;
-    _this['name'] = name;
-    _this['name_en'] = nameEn;
+
+
+
   };
 
   /**

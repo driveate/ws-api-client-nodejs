@@ -44,20 +44,15 @@
    * Constructs a new <code>ModelWithTrims</code>.
    * @alias module:model/ModelWithTrims
    * @class
-   * @param slug {String} Model name (e.g. `Outlander`)
-   * @param name {String} Model slug name (e.g. `outlander`)
-   * @param startYear {String} Model production start year. It should be 'integer' but it is used as 'string' by historical reasons.
-   * @param endYear {String} Model production end year. It should be 'integer' but it is used as 'string' by  historical reasons.  It equals to the __*`current year + 1`*__ if it is still in production.
-   * @param vehicles {Array.<module:model/TrimWithMarketAndYears>} 
    */
-  var exports = function(slug, name, startYear, endYear, vehicles) {
+  var exports = function() {
     var _this = this;
 
-    _this['slug'] = slug;
-    _this['name'] = name;
-    _this['start_year'] = startYear;
-    _this['end_year'] = endYear;
-    _this['vehicles'] = vehicles;
+
+
+
+
+
   };
 
   /**

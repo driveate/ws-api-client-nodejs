@@ -44,12 +44,16 @@
    * Constructs a new <code>Trim</code>.
    * @alias module:model/Trim
    * @class
-   * @param slug {String} Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
    */
-  var exports = function(slug) {
+  var exports = function() {
     var _this = this;
 
-    _this['slug'] = slug;
+
+
+
+
+
+
 
 
   };
@@ -71,6 +75,21 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
+      if (data.hasOwnProperty('trim')) {
+        obj['trim'] = ApiClient.convertToType(data['trim'], 'String');
+      }
+      if (data.hasOwnProperty('body')) {
+        obj['body'] = ApiClient.convertToType(data['body'], 'String');
+      }
+      if (data.hasOwnProperty('generation')) {
+        obj['generation'] = ApiClient.convertToType(data['generation'], 'String');
+      }
+      if (data.hasOwnProperty('production_start_year')) {
+        obj['production_start_year'] = ApiClient.convertToType(data['production_start_year'], 'Number');
+      }
+      if (data.hasOwnProperty('production_end_year')) {
+        obj['production_end_year'] = ApiClient.convertToType(data['production_end_year'], 'Number');
+      }
       if (data.hasOwnProperty('markets')) {
         obj['markets'] = ApiClient.convertToType(data['markets'], [Market]);
       }
@@ -88,6 +107,31 @@
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
+  /**
+   * Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
+   * @member {String} trim
+   */
+  exports.prototype['trim'] = undefined;
+  /**
+   * Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)
+   * @member {String} body
+   */
+  exports.prototype['body'] = undefined;
+  /**
+   * Generation name (e.g. `III Restyling`, can be __*`null`*__)
+   * @member {String} generation
+   */
+  exports.prototype['generation'] = undefined;
+  /**
+   * Trim production start year (e.g. `2015`, can be __*`null`*__)
+   * @member {Number} production_start_year
+   */
+  exports.prototype['production_start_year'] = undefined;
+  /**
+   * Trim production end year (e.g. `2016`, can be __*`null`*__)
+   * @member {Number} production_end_year
+   */
+  exports.prototype['production_end_year'] = undefined;
   /**
    * List of markets where this trim if present
    * @member {Array.<module:model/Market>} markets

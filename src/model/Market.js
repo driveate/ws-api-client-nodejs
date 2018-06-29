@@ -44,18 +44,14 @@
    * Constructs a new <code>Market</code>.
    * @alias module:model/Market
    * @class
-   * @param slug {String} Market slug name (e.g. `eudm`)
-   * @param abbr {String} Market abbreviation (e.g. `EUDM`)
-   * @param name {String} Market name (e.g. `European domestic market`)
-   * @param nameEn {String}  Original english name. Use it along with _**`lang`**_ query parameter  
    */
-  var exports = function(slug, abbr, name, nameEn) {
+  var exports = function() {
     var _this = this;
 
-    _this['slug'] = slug;
-    _this['abbr'] = abbr;
-    _this['name'] = name;
-    _this['name_en'] = nameEn;
+
+
+
+
   };
 
   /**

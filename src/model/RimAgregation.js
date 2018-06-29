@@ -45,16 +45,13 @@
    * Rim diameter, offset, and width values aggregated by bolt pattern
    * @alias module:model/RimAgregation
    * @class
-   * @param diameter {module:model/Aggregation} 
-   * @param offset {module:model/Aggregation} 
-   * @param width {module:model/Aggregation} 
    */
-  var exports = function(diameter, offset, width) {
+  var exports = function() {
     var _this = this;
 
-    _this['diameter'] = diameter;
-    _this['offset'] = offset;
-    _this['width'] = width;
+
+
+
   };
 
   /**

@@ -44,14 +44,12 @@
    * Constructs a new <code>Year</code>.
    * @alias module:model/Year
    * @class
-   * @param slug {Number} Same as *`name`*. Aimed to match general for this API slug-name format
-   * @param name {Number} Year (e.g. `2015`)
    */
-  var exports = function(slug, name) {
+  var exports = function() {
     var _this = this;
 
-    _this['slug'] = slug;
-    _this['name'] = name;
+
+
   };
 
   /**

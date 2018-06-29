@@ -45,16 +45,13 @@
    * Power in different units (can be __*&#x60;null&#x60;*__)
    * @alias module:model/Power
    * @class
-   * @param PS {Number} Power, PS (e.g. `169`)
-   * @param hp {Number} Power, hp (e.g. `166`)
-   * @param kW {Number} Power, kW (e.g. `124`)
    */
-  var exports = function(PS, hp, kW) {
+  var exports = function() {
     var _this = this;
 
-    _this['PS'] = PS;
-    _this['hp'] = hp;
-    _this['kW'] = kW;
+
+
+
   };
 
   /**

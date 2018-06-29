@@ -44,17 +44,14 @@
    * Constructs a new <code>BoltPattern</code>.
    * @alias module:model/BoltPattern
    * @class
-   * @param stud {Number} Stud holes number (e.g. `5`)
-   * @param pcd {Number} Pitch circle diameter, mm (e.g. `105`)
-   * @param count {Number} Number of vehicles matching bolt pattern
    */
-  var exports = function(stud, pcd, count) {
+  var exports = function() {
     var _this = this;
 
 
-    _this['stud'] = stud;
-    _this['pcd'] = pcd;
-    _this['count'] = count;
+
+
+
   };
 
   /**

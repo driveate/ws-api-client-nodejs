@@ -44,14 +44,12 @@
    * Constructs a new <code>MakeWithModels</code>.
    * @alias module:model/MakeWithModels
    * @class
-   * @param make {module:model/Make} 
-   * @param models {Array.<module:model/ModelWithTrims>} 
    */
-  var exports = function(make, models) {
+  var exports = function() {
     var _this = this;
 
-    _this['make'] = make;
-    _this['models'] = models;
+
+
   };
 
   /**

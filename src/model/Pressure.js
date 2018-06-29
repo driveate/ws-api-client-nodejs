@@ -45,16 +45,13 @@
    * Tire pressure in different units (can be __*&#x60;null&#x60;*__)
    * @alias module:model/Pressure
    * @class
-   * @param bar {Number} Pressure, bar (e.g. `2.4`)
-   * @param psi {Number} Pressure, psi (e.g. `35`)
-   * @param kPa {Number} Pressure, kPa (e.g. `240`)
    */
-  var exports = function(bar, psi, kPa) {
+  var exports = function() {
     var _this = this;
 
-    _this['bar'] = bar;
-    _this['psi'] = psi;
-    _this['kPa'] = kPa;
+
+
+
   };
 
   /**
