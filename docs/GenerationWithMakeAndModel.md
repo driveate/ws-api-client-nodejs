@@ -1,8 +1,10 @@
-# ws_api_client.Generation
+# ws_api_client.GenerationWithMakeAndModel
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**make** | [**Make**](Make.md) |  | 
+**model** | [**Model**](Model.md) |  | 
 **name** | **String** | Generation name (e.g. &#x60;III Restyling&#x60;) | 
 **bodies** | [**[Body]**](Body.md) |  | 
 **startYear** | **Number** | Generation start year | [optional] 

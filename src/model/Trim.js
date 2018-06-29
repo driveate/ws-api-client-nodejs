@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/Market'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./Market'));
   } else {
     // Browser globals (root is window)
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.Trim = factory(root.ws_api_client.ApiClient);
+    root.ws_api_client.Trim = factory(root.ws_api_client.ApiClient, root.ws_api_client.Market);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, Market) {
   'use strict';
 
 
@@ -44,17 +44,13 @@
    * Constructs a new <code>Trim</code>.
    * @alias module:model/Trim
    * @class
-   * @param name {String} Format: __*`trim (body)`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0 (GG2W)`)
-   * @param trim {String} Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
-   * @param body {String} Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)
+   * @param slug {String} Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
    */
-  var exports = function(name, trim, body) {
+  var exports = function(slug) {
     var _this = this;
 
+    _this['slug'] = slug;
 
-    _this['name'] = name;
-    _this['trim'] = trim;
-    _this['body'] = body;
 
   };
 
@@ -75,44 +71,28 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('trim')) {
-        obj['trim'] = ApiClient.convertToType(data['trim'], 'String');
-      }
-      if (data.hasOwnProperty('body')) {
-        obj['body'] = ApiClient.convertToType(data['body'], 'String');
-      }
-      if (data.hasOwnProperty('generation')) {
-        obj['generation'] = ApiClient.convertToType(data['generation'], 'String');
+      if (data.hasOwnProperty('markets')) {
+        obj['markets'] = ApiClient.convertToType(data['markets'], [Market]);
       }
     }
     return obj;
   }
 
   /**
-   * Combines trim and body name. Format: __*`trim+body`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0+GG2W`)
+   * Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)
    * @member {String} slug
    */
   exports.prototype['slug'] = undefined;
   /**
-   * Format: __*`trim (body)`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0 (GG2W)`)
+   * Format: __*`trim (body) [generation]`*__ (e.g. `2.0 (GG2W) [III Restyling]`)
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
-   * @member {String} trim
+   * List of markets where this trim if present
+   * @member {Array.<module:model/Market>} markets
    */
-  exports.prototype['trim'] = undefined;
-  /**
-   * Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)
-   * @member {String} body
-   */
-  exports.prototype['body'] = undefined;
-  /**
-   * Generation name (e.g. `III Restyling`, can be __*`null`*__)
-   * @member {String} generation
-   */
-  exports.prototype['generation'] = undefined;
+  exports.prototype['markets'] = undefined;
 
 
 

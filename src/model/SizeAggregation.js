@@ -44,8 +44,8 @@
    * Constructs a new <code>SizeAggregation</code>.
    * @alias module:model/SizeAggregation
    * @class
-   * @param min {Number} Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*
-   * @param max {Number} Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*
+   * @param min {String} Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*
+   * @param max {String} Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*
    */
   var exports = function(min, max) {
     var _this = this;
@@ -66,10 +66,10 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('min')) {
-        obj['min'] = ApiClient.convertToType(data['min'], 'Number');
+        obj['min'] = ApiClient.convertToType(data['min'], 'String');
       }
       if (data.hasOwnProperty('max')) {
-        obj['max'] = ApiClient.convertToType(data['max'], 'Number');
+        obj['max'] = ApiClient.convertToType(data['max'], 'String');
       }
     }
     return obj;
@@ -77,12 +77,12 @@
 
   /**
    * Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*
-   * @member {Number} min
+   * @member {String} min
    */
   exports.prototype['min'] = undefined;
   /**
    * Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*
-   * @member {Number} max
+   * @member {String} max
    */
   exports.prototype['max'] = undefined;
 

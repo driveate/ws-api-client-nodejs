@@ -45,29 +45,16 @@
    * @alias module:model/Vehicle
    * @class
    * @param market {module:model/Market} 
-   * @param body {String} Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)
-   * @param trim {String} Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
    * @param generation {module:model/Generation} 
-   * @param studHoles {Number} Number of stud holes (e.g. `5`, can be __*`null`*__)
-   * @param pcd {Number} Pitch circle diameter, mm (e.g. `105`, can be __*`null`*__)
-   * @param centreBore {Number} Centre bore diameter, mm (e.g. `48.1`, can be __*`null`*__)
-   * @param lockText {module:model/Vehicle.LockTextEnum} Lock thread size (e.g. `M12 x 1.25`, can be __*`null`*__)
    * @param boltPattern {String} Bolt pattern (e.g. `5x105`, can be __*`N/A`*__)
    */
-  var exports = function(market, body, trim, generation, studHoles, pcd, centreBore, lockText, boltPattern) {
+  var exports = function(market, generation, boltPattern) {
     var _this = this;
 
     _this['market'] = market;
-    _this['body'] = body;
-    _this['trim'] = trim;
     _this['generation'] = generation;
-    _this['stud_holes'] = studHoles;
-    _this['pcd'] = pcd;
-    _this['centre_bore'] = centreBore;
 
-    _this['lock_text'] = lockText;
     _this['bolt_pattern'] = boltPattern;
-
 
 
   };
@@ -86,38 +73,17 @@
       if (data.hasOwnProperty('market')) {
         obj['market'] = Market.constructFromObject(data['market']);
       }
-      if (data.hasOwnProperty('body')) {
-        obj['body'] = ApiClient.convertToType(data['body'], 'String');
-      }
-      if (data.hasOwnProperty('trim')) {
-        obj['trim'] = ApiClient.convertToType(data['trim'], 'String');
-      }
       if (data.hasOwnProperty('generation')) {
         obj['generation'] = Generation.constructFromObject(data['generation']);
       }
-      if (data.hasOwnProperty('stud_holes')) {
-        obj['stud_holes'] = ApiClient.convertToType(data['stud_holes'], 'Number');
-      }
-      if (data.hasOwnProperty('pcd')) {
-        obj['pcd'] = ApiClient.convertToType(data['pcd'], 'Number');
-      }
-      if (data.hasOwnProperty('centre_bore')) {
-        obj['centre_bore'] = ApiClient.convertToType(data['centre_bore'], 'Number');
-      }
       if (data.hasOwnProperty('lock_type')) {
         obj['lock_type'] = ApiClient.convertToType(data['lock_type'], 'String');
-      }
-      if (data.hasOwnProperty('lock_text')) {
-        obj['lock_text'] = ApiClient.convertToType(data['lock_text'], 'String');
       }
       if (data.hasOwnProperty('bolt_pattern')) {
         obj['bolt_pattern'] = ApiClient.convertToType(data['bolt_pattern'], 'String');
       }
       if (data.hasOwnProperty('power')) {
         obj['power'] = Power.constructFromObject(data['power']);
-      }
-      if (data.hasOwnProperty('fuel')) {
-        obj['fuel'] = ApiClient.convertToType(data['fuel'], 'String');
       }
       if (data.hasOwnProperty('wheels')) {
         obj['wheels'] = ApiClient.convertToType(data['wheels'], [WheelPair]);
@@ -131,43 +97,13 @@
    */
   exports.prototype['market'] = undefined;
   /**
-   * Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)
-   * @member {String} body
-   */
-  exports.prototype['body'] = undefined;
-  /**
-   * Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)
-   * @member {String} trim
-   */
-  exports.prototype['trim'] = undefined;
-  /**
    * @member {module:model/Generation} generation
    */
   exports.prototype['generation'] = undefined;
   /**
-   * Number of stud holes (e.g. `5`, can be __*`null`*__)
-   * @member {Number} stud_holes
-   */
-  exports.prototype['stud_holes'] = undefined;
-  /**
-   * Pitch circle diameter, mm (e.g. `105`, can be __*`null`*__)
-   * @member {Number} pcd
-   */
-  exports.prototype['pcd'] = undefined;
-  /**
-   * Centre bore diameter, mm (e.g. `48.1`, can be __*`null`*__)
-   * @member {Number} centre_bore
-   */
-  exports.prototype['centre_bore'] = undefined;
-  /**
    * @member {module:model/Vehicle.LockTypeEnum} lock_type
    */
   exports.prototype['lock_type'] = undefined;
-  /**
-   * Lock thread size (e.g. `M12 x 1.25`, can be __*`null`*__)
-   * @member {module:model/Vehicle.LockTextEnum} lock_text
-   */
-  exports.prototype['lock_text'] = undefined;
   /**
    * Bolt pattern (e.g. `5x105`, can be __*`N/A`*__)
    * @member {String} bolt_pattern
@@ -177,11 +113,6 @@
    * @member {module:model/Power} power
    */
   exports.prototype['power'] = undefined;
-  /**
-   * Fuel (e.g. `Petrol`, can be __*`null`*__)
-   * @member {String} fuel
-   */
-  exports.prototype['fuel'] = undefined;
   /**
    * @member {Array.<module:model/WheelPair>} wheels
    */
@@ -204,73 +135,6 @@
      * @const
      */
     "bolt": "bolt"  };
-
-  /**
-   * Allowed values for the <code>lock_text</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.LockTextEnum = {
-    /**
-     * value: "M10 x 1.25"
-     * @const
-     */
-    "M10 x 1.25": "M10 x 1.25",
-    /**
-     * value: "M12 x 1.25"
-     * @const
-     */
-    "M12 x 1.25": "M12 x 1.25",
-    /**
-     * value: "M12 x 1.5"
-     * @const
-     */
-    "M12 x 1.5": "M12 x 1.5",
-    /**
-     * value: "M12 x 1.75"
-     * @const
-     */
-    "M12 x 1.75": "M12 x 1.75",
-    /**
-     * value: "M14 x 1.25"
-     * @const
-     */
-    "M14 x 1.25": "M14 x 1.25",
-    /**
-     * value: "M14 x 1.5"
-     * @const
-     */
-    "M14 x 1.5": "M14 x 1.5",
-    /**
-     * value: "M14 x 2.0"
-     * @const
-     */
-    "M14 x 2.0": "M14 x 2.0",
-    /**
-     * value: "M16 x 1.5"
-     * @const
-     */
-    "M16 x 1.5": "M16 x 1.5",
-    /**
-     * value: "3/8\\\" - 24 UNF"
-     * @const
-     */
-    "3/8\&quot; - 24 UNF": "3/8\\\" - 24 UNF",
-    /**
-     * value: "7/16\\\" - 20 UNF"
-     * @const
-     */
-    "7/16\&quot; - 20 UNF": "7/16\\\" - 20 UNF",
-    /**
-     * value: "1/2\\\" - 20 UNF"
-     * @const
-     */
-    "1/2\&quot; - 20 UNF": "1/2\\\" - 20 UNF",
-    /**
-     * value: "9/16\\\" - 18 UNF"
-     * @const
-     */
-    "9/16\&quot; - 18 UNF": "9/16\\\" - 18 UNF"  };
 
 
   return exports;

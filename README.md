@@ -147,6 +147,7 @@ Class | Method | HTTP request | Description
  - [ws_api_client.BoltPattern](docs/BoltPattern.md)
  - [ws_api_client.Country](docs/Country.md)
  - [ws_api_client.Generation](docs/Generation.md)
+ - [ws_api_client.GenerationWithMakeAndModel](docs/GenerationWithMakeAndModel.md)
  - [ws_api_client.Make](docs/Make.md)
  - [ws_api_client.MakeWithModels](docs/MakeWithModels.md)
  - [ws_api_client.Market](docs/Market.md)

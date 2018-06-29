@@ -17,39 +17,43 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Body'], factory);
+    define(['ApiClient', 'model/Body', 'model/Make', 'model/Model'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Body'));
+    module.exports = factory(require('../ApiClient'), require('./Body'), require('./Make'), require('./Model'));
   } else {
     // Browser globals (root is window)
     if (!root.ws_api_client) {
       root.ws_api_client = {};
     }
-    root.ws_api_client.Generation = factory(root.ws_api_client.ApiClient, root.ws_api_client.Body);
+    root.ws_api_client.GenerationWithMakeAndModel = factory(root.ws_api_client.ApiClient, root.ws_api_client.Body, root.ws_api_client.Make, root.ws_api_client.Model);
   }
-}(this, function(ApiClient, Body) {
+}(this, function(ApiClient, Body, Make, Model) {
   'use strict';
 
 
 
 
   /**
-   * The Generation model module.
-   * @module model/Generation
+   * The GenerationWithMakeAndModel model module.
+   * @module model/GenerationWithMakeAndModel
    * @version 1.0.0
    */
 
   /**
-   * Constructs a new <code>Generation</code>.
-   * @alias module:model/Generation
+   * Constructs a new <code>GenerationWithMakeAndModel</code>.
+   * @alias module:model/GenerationWithMakeAndModel
    * @class
+   * @param make {module:model/Make} 
+   * @param model {module:model/Model} 
    * @param name {String} Generation name (e.g. `III Restyling`)
    * @param bodies {Array.<module:model/Body>} 
    */
-  var exports = function(name, bodies) {
+  var exports = function(make, model, name, bodies) {
     var _this = this;
 
+    _this['make'] = make;
+    _this['model'] = model;
     _this['name'] = name;
     _this['bodies'] = bodies;
 
@@ -58,16 +62,22 @@
   };
 
   /**
-   * Constructs a <code>Generation</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GenerationWithMakeAndModel</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Generation} obj Optional instance to populate.
-   * @return {module:model/Generation} The populated <code>Generation</code> instance.
+   * @param {module:model/GenerationWithMakeAndModel} obj Optional instance to populate.
+   * @return {module:model/GenerationWithMakeAndModel} The populated <code>GenerationWithMakeAndModel</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('make')) {
+        obj['make'] = Make.constructFromObject(data['make']);
+      }
+      if (data.hasOwnProperty('model')) {
+        obj['model'] = Model.constructFromObject(data['model']);
+      }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
@@ -87,6 +97,14 @@
     return obj;
   }
 
+  /**
+   * @member {module:model/Make} make
+   */
+  exports.prototype['make'] = undefined;
+  /**
+   * @member {module:model/Model} model
+   */
+  exports.prototype['model'] = undefined;
   /**
    * Generation name (e.g. `III Restyling`)
    * @member {String} name

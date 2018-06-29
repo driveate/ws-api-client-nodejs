@@ -17,12 +17,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Aggregation', 'model/Body', 'model/BoltPattern', 'model/Country', 'model/Generation', 'model/Make', 'model/MakeWithModels', 'model/Market', 'model/Model', 'model/ModelWithTires', 'model/ModelWithTrims', 'model/Power', 'model/Pressure', 'model/RimAgregation', 'model/SizeAggregation', 'model/Tire', 'model/TiresAggregation', 'model/Trim', 'model/TrimWithMarketAndYears', 'model/Vehicle', 'model/Wheel', 'model/WheelPair', 'model/Year', 'api/BoltPatternsApi', 'api/CountriesApi', 'api/GenerationsApi', 'api/MakesApi', 'api/MarketsApi', 'api/ModelsApi', 'api/SearchApi', 'api/TiresApi', 'api/TrimsApi', 'api/VehiclesApi', 'api/YearsApi'], factory);
+    define(['ApiClient', 'model/Aggregation', 'model/Body', 'model/BoltPattern', 'model/Country', 'model/Generation', 'model/GenerationWithMakeAndModel', 'model/Make', 'model/MakeWithModels', 'model/Market', 'model/Model', 'model/ModelWithTires', 'model/ModelWithTrims', 'model/Power', 'model/Pressure', 'model/RimAgregation', 'model/SizeAggregation', 'model/Tire', 'model/TiresAggregation', 'model/Trim', 'model/TrimWithMarketAndYears', 'model/Vehicle', 'model/Wheel', 'model/WheelPair', 'model/Year', 'api/BoltPatternsApi', 'api/CountriesApi', 'api/GenerationsApi', 'api/MakesApi', 'api/MarketsApi', 'api/ModelsApi', 'api/SearchApi', 'api/TiresApi', 'api/TrimsApi', 'api/VehiclesApi', 'api/YearsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Aggregation'), require('./model/Body'), require('./model/BoltPattern'), require('./model/Country'), require('./model/Generation'), require('./model/Make'), require('./model/MakeWithModels'), require('./model/Market'), require('./model/Model'), require('./model/ModelWithTires'), require('./model/ModelWithTrims'), require('./model/Power'), require('./model/Pressure'), require('./model/RimAgregation'), require('./model/SizeAggregation'), require('./model/Tire'), require('./model/TiresAggregation'), require('./model/Trim'), require('./model/TrimWithMarketAndYears'), require('./model/Vehicle'), require('./model/Wheel'), require('./model/WheelPair'), require('./model/Year'), require('./api/BoltPatternsApi'), require('./api/CountriesApi'), require('./api/GenerationsApi'), require('./api/MakesApi'), require('./api/MarketsApi'), require('./api/ModelsApi'), require('./api/SearchApi'), require('./api/TiresApi'), require('./api/TrimsApi'), require('./api/VehiclesApi'), require('./api/YearsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Aggregation'), require('./model/Body'), require('./model/BoltPattern'), require('./model/Country'), require('./model/Generation'), require('./model/GenerationWithMakeAndModel'), require('./model/Make'), require('./model/MakeWithModels'), require('./model/Market'), require('./model/Model'), require('./model/ModelWithTires'), require('./model/ModelWithTrims'), require('./model/Power'), require('./model/Pressure'), require('./model/RimAgregation'), require('./model/SizeAggregation'), require('./model/Tire'), require('./model/TiresAggregation'), require('./model/Trim'), require('./model/TrimWithMarketAndYears'), require('./model/Vehicle'), require('./model/Wheel'), require('./model/WheelPair'), require('./model/Year'), require('./api/BoltPatternsApi'), require('./api/CountriesApi'), require('./api/GenerationsApi'), require('./api/MakesApi'), require('./api/MarketsApi'), require('./api/ModelsApi'), require('./api/SearchApi'), require('./api/TiresApi'), require('./api/TrimsApi'), require('./api/VehiclesApi'), require('./api/YearsApi'));
   }
-}(function(ApiClient, Aggregation, Body, BoltPattern, Country, Generation, Make, MakeWithModels, Market, Model, ModelWithTires, ModelWithTrims, Power, Pressure, RimAgregation, SizeAggregation, Tire, TiresAggregation, Trim, TrimWithMarketAndYears, Vehicle, Wheel, WheelPair, Year, BoltPatternsApi, CountriesApi, GenerationsApi, MakesApi, MarketsApi, ModelsApi, SearchApi, TiresApi, TrimsApi, VehiclesApi, YearsApi) {
+}(function(ApiClient, Aggregation, Body, BoltPattern, Country, Generation, GenerationWithMakeAndModel, Make, MakeWithModels, Market, Model, ModelWithTires, ModelWithTrims, Power, Pressure, RimAgregation, SizeAggregation, Tire, TiresAggregation, Trim, TrimWithMarketAndYears, Vehicle, Wheel, WheelPair, Year, BoltPatternsApi, CountriesApi, GenerationsApi, MakesApi, MarketsApi, ModelsApi, SearchApi, TiresApi, TrimsApi, VehiclesApi, YearsApi) {
   'use strict';
 
   /**
@@ -87,6 +87,11 @@
      * @property {module:model/Generation}
      */
     Generation: Generation,
+    /**
+     * The GenerationWithMakeAndModel model constructor.
+     * @property {module:model/GenerationWithMakeAndModel}
+     */
+    GenerationWithMakeAndModel: GenerationWithMakeAndModel,
     /**
      * The Make model constructor.
      * @property {module:model/Make}

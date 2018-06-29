@@ -44,14 +44,12 @@
    * Constructs a new <code>TrimWithMarketAndYears</code>.
    * @alias module:model/TrimWithMarketAndYears
    * @class
-   * @param trim {String} Trim name (e.g. `2.0`, can be __*`null`*__)
    * @param market {module:model/Market} 
    * @param years {Array.<Number>} Production years for these trim and market
    */
-  var exports = function(trim, market, years) {
+  var exports = function(market, years) {
     var _this = this;
 
-    _this['trim'] = trim;
     _this['market'] = market;
     _this['years'] = years;
   };
@@ -67,9 +65,6 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('trim')) {
-        obj['trim'] = ApiClient.convertToType(data['trim'], 'String');
-      }
       if (data.hasOwnProperty('market')) {
         obj['market'] = Market.constructFromObject(data['market']);
       }
@@ -80,11 +75,6 @@
     return obj;
   }
 
-  /**
-   * Trim name (e.g. `2.0`, can be __*`null`*__)
-   * @member {String} trim
-   */
-  exports.prototype['trim'] = undefined;
   /**
    * @member {module:model/Market} market
    */
